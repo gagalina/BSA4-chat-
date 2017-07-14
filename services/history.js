@@ -1,25 +1,35 @@
-function findUser(id){
-  let err = null;
-  let index = null;
+const messages = [
+  {
+    id: 1,
+    sender_id: 1,
+    receiver_id: 2,
+    message_body: "Hi"
+  },
+  {
+    id: 2,
+    sender_id: 2,
+    receiver_id: 3,
+    message_body: "Bye"
+  },
+  {
+    id: 3,
+    sender_id: 1,
+    receiver_id: 3,
+    message_body: "Gutten Tag"
+  }
+];
+
+function findReceivers(id){
+
   if (typeof id === 'undefined'){
-    err = new Error('Id is undefined');
+    return null;
   }
 
-  const user = users.find((el, ind) => {
-    if (el.id === id){
-      index = ind;
-      return true;
-    } else {
-      return false;
-    }
+  return  messages.filter( message => {
+    return message.sender_id === id;
   });
-  return {user, index, err};
 }
 
-
 module.exports = {
-
-  findOneAndUpdate: (id) => {
-    const index = findUser(id);
-  }
+  findReceivers
 };

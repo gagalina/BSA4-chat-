@@ -19,20 +19,16 @@ const messages = [
   }
 ];
 
-function findMessage(id){
+function findMessage(id) {
   let err = null;
   let index = null;
-  if (typeof id === 'undefined'){
+  if (typeof id === 'undefined') {
     err = new Error('Id is undefined');
   }
 
   const message = messages.find((el, ind) => {
-    if (el.id === id){
-      index = ind;
-      return true;
-    } else {
-      return false;
-    }
+
+    return el.id === id ? index = ind: false;
   });
   return {message, index, err};
 }
@@ -44,17 +40,17 @@ module.exports = {
     callback(null, messages);
   },
 
-  addMessage:(message) => {
+  addMessage: (message) => {
     if (typeof message.id !== 'undefined') {
       messages.push(message);
-    } else{
+    } else {
       const error = new Error('Invalid Id');
     }
   },
 
   findOneAndDelete: (id) => {
     let messageId = findMessage(id);
-    if (typeof messageId !== 'undefined'){
+    if (typeof messageId !== 'undefined') {
       messages.splice(messageId, 1);
     } else {
       err = new Error('There is no user with such Id');
@@ -63,6 +59,9 @@ module.exports = {
 
   findOneAndUpdate: (id, message) => {
     const index = findMessage(id);
+    console.log(index);
     messages[index.index] = Object.assign(messages[index.index], message);
   }
+
+
 };

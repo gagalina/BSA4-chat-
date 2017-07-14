@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const messageService = require('../services/message');
+const messageService = require('../services/history');
 
 //Create
 router.post('/add', function (req, res) {
@@ -38,6 +38,7 @@ router.put('/update/:id', (req, res) => {
 router.delete('/delete/:id', (req, res) => {
   messageService.findOneAndDelete(Number(req.body.id));
   res.json(res.data);
+
 });
 
 
