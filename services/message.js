@@ -58,11 +58,8 @@ module.exports = {
     }
   },
 
-  findOneAndUpdate: (id, message) => {
+  findOneAndUpdate: (id, updatedMessage) => {
     const index = findMessage(id);
-    console.log(index);
-    messages[index.index] = Object.assign(messages[index.index], message);
+    messages[index.index] = Object.assign(messages[index.index], updatedMessage);
   }
-
-
 };

@@ -29,7 +29,6 @@ router.get('/', (req, res, next) => {
 
 //Update
 router.put('/', (req, res) => {
-
   const updatedUser = req.body;
   userService.findOneAndUpdate(Number(req.body.id), updatedUser);
   res.json(res.data);
