@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const messageService = require('../services/history');
+const messageService = require('../services/message');
 
 //Create
-router.post('/add', function (req, res) {
+router.post('/', function (req, res) {
   const newMessage = {
     id: req.body.id,
     sender_id: req.body.sender_id,
@@ -28,14 +28,14 @@ router.get('/', (req, res) => {
 });
 
 //Update
-router.put('/update/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const updatedMessage = req.body;
   messageService.findOneAndUpdate(Number(req.body.id), updatedMessage);
   res.json(res.data);
 });
 
 //Delete
-router.delete('/delete/:id', (req, res) => {
+router.delete('/', (req, res) => {
   messageService.findOneAndDelete(Number(req.body.id));
   res.json(res.data);
 

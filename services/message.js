@@ -50,8 +50,10 @@ module.exports = {
 
   findOneAndDelete: (id) => {
     let messageId = findMessage(id);
-    if (typeof messageId !== 'undefined') {
-      messages.splice(messageId, 1);
+      console.log(messageId);
+
+      if (messageId.index !== null) {
+      messages.splice(messageId.index, 1);
     } else {
       err = new Error('There is no user with such Id');
     }

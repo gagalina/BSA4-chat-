@@ -2,7 +2,7 @@ const router = require('express').Router();
 const userService = require('../services/user');
 
 //Create
-router.post('/add', function (req, res) {
+router.post('/', function (req, res) {
   const newUser = {
     id: req.body.id,
     first_name: req.body.first_name,
@@ -28,7 +28,7 @@ router.get('/', (req, res, next) => {
 });
 
 //Update
-router.put('/update/:id', (req, res) => {
+router.put('/', (req, res) => {
 
   const updatedUser = req.body;
   userService.findOneAndUpdate(Number(req.body.id), updatedUser);
@@ -36,7 +36,7 @@ router.put('/update/:id', (req, res) => {
 });
 
 //Delete
-router.delete('/delete/:id', (req, res) => {
+router.delete('/', (req, res) => {
 
   userService.findOneAndDelete(Number(req.body.id));
   res.json(res.data);
