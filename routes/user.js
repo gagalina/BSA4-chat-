@@ -37,7 +37,6 @@ router.put('/', (req, res) => {
 
 //Delete
 router.delete('/', (req, res) => {
-
   userService.findOneAndDelete(Number(req.body.id));
   res.json(res.data);
 });

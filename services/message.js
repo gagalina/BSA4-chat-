@@ -50,7 +50,6 @@ module.exports = {
 
   findOneAndDelete: (id) => {
     let messageId = findMessage(id);
-      console.log(messageId);
 
       if (messageId.index !== null) {
       messages.splice(messageId.index, 1);

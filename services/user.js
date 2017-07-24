@@ -54,8 +54,8 @@ module.exports = {
 
   findOneAndDelete: (id) => {
     let userId = findUser(id);
-    if (typeof userId !== 'undefined'){
-      users.splice(userId, 1);
+    if (userId.index !== null){
+      users.splice(userId.index, 1);
     } else {
       err = new Error('There is no user with such Id');
     }
