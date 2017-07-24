@@ -31,5 +31,9 @@ function findReceivers(id){
 }
 
 module.exports = {
-  findReceivers
+    findReceivers,
+
+    findAll: (callback) => {
+        callback(null, messages);
+    },
 };
