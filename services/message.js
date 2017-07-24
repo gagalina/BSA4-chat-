@@ -61,5 +61,7 @@ module.exports = {
   findOneAndUpdate: (id, updatedMessage) => {
     const index = findMessage(id);
     messages[index.index] = Object.assign(messages[index.index], updatedMessage);
-  }
+  },
+
+    messages: messages
 };
