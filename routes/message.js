@@ -35,8 +35,8 @@ router.put('/', (req, res) => {
 });
 
 //Delete
-router.delete('/', (req, res) => {
-    messageService.findOneAndDelete(Number(req.body.id));
+router.delete('/:id', (req, res) => {
+    messageService.findOneAndDelete(Number(req.params.id));
     res.json(res.data);
 
 });

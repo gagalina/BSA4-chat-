@@ -8,14 +8,13 @@ function findReceivers(id){
     return null;
   }
 
-  return  messages.filter( message => {
-    return message.sender_id === id;
+  return  messages.messages.filter( message => {
+      return message.sender_id === id;
   });
 }
 
 module.exports = {
     findReceivers,
-
     findAll: (callback) => {
       console.log(messageHistory);
         callback(null, messageHistory);
